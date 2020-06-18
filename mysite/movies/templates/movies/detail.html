@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block body %}
+  <h2>{{ movie.title }}</h2>
+  <h3>{{ movie.title_en }}</h3>
+  <hr>
+  <p>누적 관객 수 : {{movie.audience}}명</p>
+  <P>개봉일 : {{movie.open_date}}</P>
+  <P>장르 : {{movie.genre}}</P>
+  <p>관람 등급 : {{movie.watch_grade}}</p>
+  <p>평 점 : {{movie.score}}</p>
+  <img src="{{movie.poster_url}}" width="40%" height="30%">
+  <hr>
+  <p> 영화 소개 : {{movie.description}}</p>
+  <hr>
+  <a href="{% url 'movies:update' movie.pk %}">수정</a>
+  <a href="{% url 'movies:delete' movie.pk %}">삭제</a>
+  <a href="{% url 'movies:movies' %}">[back]</a>
+
+{% endblock %}
